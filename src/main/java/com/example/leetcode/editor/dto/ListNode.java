@@ -55,13 +55,31 @@ public class ListNode {
 
     public static void main(String[] args) {
         ListNode node = new ListNode(5);
-        node.next = new ListNode(10);
-        node.next.next = new ListNode(3);
+        ListNode node2 = new ListNode(10);
+        ListNode node3 = new ListNode(3);
+
+        node.next = node2;
+        node2.next = node3;
 
         node.print();
+        reverse(node);
+        node3.print();
 
-        ListNode node2 = ListNode.of(2, 3, 5, 7);
-        node2.print();
+
+//        ListNode $node = ListNode.of(2, 3, 5, 7);
+//        $node.print();
+    }
+
+    public static void reverse(ListNode root) {
+        ListNode pre = null;
+        ListNode next = null;
+
+        while (root != null) {
+            next = root.next;
+            root.next = pre;
+            pre = root;
+            root = next;
+        }
     }
 
 }
