@@ -50,7 +50,8 @@ public class ReverseInteger {
 
     public static void main(String[] args) {
         Solution solution = new ReverseInteger().new Solution();
-        System.out.println(solution.reverse(1534236461));
+        System.out.println(solution.reverse(-2147483412));
+        System.out.println(solution.reverse(1234567899));
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
@@ -58,10 +59,14 @@ class Solution {
         int result = 0;
 
         while (x != 0) {
-            if (x > Integer.MAX_VALUE / 10 || x < Integer.MIN_VALUE / 10) {
+            int add = x % 10;
+            if (result > Integer.MAX_VALUE / 10 || result < Integer.MIN_VALUE / 10) {
                 return 0;
             }
-            result = result * 10 + x % 10;
+//            if ((result == Integer.MAX_VALUE / 10 && add > Integer.MAX_VALUE % 10) || (result == Integer.MIN_VALUE / 10 && add < Integer.MIN_VALUE % 10)) {
+//                return 0;
+//            }
+            result = result * 10 + add;
             x /= 10;
         }
         return result;

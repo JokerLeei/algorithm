@@ -1,4 +1,4 @@
-package com.example.leetcode.editor.dto;
+package com.example.leetcode.editor.cn.dto;
 
 import lombok.Data;
 
@@ -29,15 +29,13 @@ public class ListNode {
         if (args.length == 0) {
             throw new IllegalArgumentException("args length at least 1");
         }
-        ListNode result = new ListNode(args[0]);
-        ListNode p = result;
-        if (args.length > 1) {
-            for (int i = 1; i < args.length; i++) {
-                p.next = new ListNode(args[i]);
-                p = p.next;
-            }
+        ListNode preHead = new ListNode(-1);
+        ListNode p = preHead;
+        for (int arg : args) {
+            p.next = new ListNode(arg);
+            p = p.next;
         }
-        return result;
+        return preHead.next;
     }
 
     public void print() {
@@ -46,7 +44,18 @@ public class ListNode {
             System.out.print("[" + p.val + "]");
             p = p.next;
             if (p != null) {
-                System.out.print("->");
+                System.out.print("=>");
+            }
+        }
+    }
+
+    public static void forEach(ListNode root) {
+        ListNode p = root;
+        while (p != null) {
+            System.out.print("[" + p.val + "]");
+            p = p.next;
+            if (p != null) {
+                System.out.print("=>");
             } else {
                 System.out.println();
             }

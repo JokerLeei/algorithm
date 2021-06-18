@@ -59,7 +59,7 @@ public class TwoSum {
 class Solution {
 
     // 时间 O(n^2)
-    // 空间 无
+    // 空间 O(1)
     public int[] twoSum(int[] nums, int target) {
         // 暴力两个for
         for (int i = 0; i < nums.length; i++) {

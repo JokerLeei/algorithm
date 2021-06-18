@@ -43,7 +43,7 @@ package com.example.leetcode.editor.cn;
 // 👍 6098 👎 0
 
 
-import com.example.leetcode.editor.dto.ListNode;
+import com.example.leetcode.editor.cn.dto.ListNode;
 
 public class AddTwoNumbers {
 

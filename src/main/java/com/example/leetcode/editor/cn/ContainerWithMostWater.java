@@ -54,11 +54,47 @@ public class ContainerWithMostWater {
 
     public static void main(String[] args) {
         Solution solution = new ContainerWithMostWater().new Solution();
+        System.out.println(solution.maxArea(new int[]{ 4,3,2,1,4 }));
+        System.out.println(solution.maxArea(new int[]{ 1,8,6,2,5,4,8,3,7 }));
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    // 排列组合暴力破解
+    // 时间 O(n^2) leetcode直接超时
+    public int maxArea2(int[] height) {
+        int result = 0;
+        int len = height.length;
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
+                int width = j - i;
+                int high = Math.min(height[i], height[j]);
+                int area = width * high;
+                result = Math.max(result, area);
+            }
+        }
+
+        return result;
+    }
+
+    // 双指针法
+    // 时间 O(n^2) 双指针遍历一次底边宽度 N
+    // 空间 O(1) 指针使用常数额外空间
     public int maxArea(int[] height) {
-        return 1;
+        int left = 0;
+        int right = height.length - 1;
+        int result = 0;
+        while (left < right) {
+            int high = Math.min(height[left], height[right]);
+            int width = right - left;
+            int area = high * width;
+            result = Math.max(result, area);
+            if (height[left] > height[right]) {
+                right--;
+            } else {
+                left++;
+            }
+        }
+        return result;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
