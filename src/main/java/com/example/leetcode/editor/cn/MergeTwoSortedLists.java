@@ -44,14 +44,11 @@ public class MergeTwoSortedLists {
 
     public static void main(String[] args) {
         Solution solution = new MergeTwoSortedLists().new Solution();
-        ListNode root1 = new ListNode(1);
-        root1.next = new ListNode(3);
-        ListNode root2 = new ListNode(0);
-        root2.next = new ListNode(2);
-        root2.next.next = new ListNode(7);
+        ListNode l1 = ListNode.of(1, 3);
+        ListNode l2 = ListNode.of(0, 2, 7);
 
 //        ListNode result = solution.mergeTwoLists(root1, root2);
-        ListNode result = solution.mergeTwoLists2(root1, root2);
+        ListNode result = solution.mergeTwoLists2(l1, l2);
 
         ListNode.forEach(result);
     }

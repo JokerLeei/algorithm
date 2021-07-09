@@ -121,8 +121,6 @@ class Solution {
 
     /**
      * 中心扩散法，计算第i位字符最大扩散回文串长度
-     * zabccba 4 - 6+1/2    4 +
-     * zabccba 3 - 6+1/2    3 +
      */
     private int centerSpread(String s, int left, int right) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
@@ -130,14 +128,6 @@ class Solution {
             right++;
         }
         return right - left - 1;
-    }
-
-    /**
-     * 动态规划
-     * 时间复杂度 O(n^2)
-     */
-    public String longestPalindrome3(String s) {
-        return "";
     }
 
 }

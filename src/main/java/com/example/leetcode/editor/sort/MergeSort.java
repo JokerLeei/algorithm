@@ -22,7 +22,7 @@ public class MergeSort {
 
     public static void mergeSort(int[] a, int left, int right) {
         if (left < right) {                 // 当数组中只有一个元素时结束递归
-            int mid = (left + right) / 2;   // 划分成两个数组, 左面[left, mid], 右面[mid + 1, right]
+            int mid = (left + right) >> 1;  // 划分成两个数组, 左面[left, mid], 右面[mid + 1, right]
 
             mergeSort(a, left, mid);        // 将左面的数组进行归并递归排序
             mergeSort(a, mid + 1, right);   // 将右面的数组进行归并递归排序
@@ -30,8 +30,10 @@ public class MergeSort {
         }
     }
 
-    // 两路归并算法，将排好序的两部分数组合成一个有序的数组
-    // a数组分为两部分[left, mid]、[mid + 1, right]，分别各自有序，通过建立一个临时数组，将他们两部分合起来并返回
+    /**
+     * 两路归并算法，将排好序的两部分数组合成一个有序的数组
+     * a 数组分为两部分[left, mid]、[mid + 1, right]，分别各自有序，通过建立一个临时数组，将他们两部分合起来并返回
+     */
     private static void merge(int[] a, int left, int mid, int right) {
         int[] temp = new int[a.length];     // 辅助数组
         int p1 = left;      // p1、p2是检测指针，k是存放指针

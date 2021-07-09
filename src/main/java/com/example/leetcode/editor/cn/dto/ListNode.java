@@ -63,32 +63,23 @@ public class ListNode {
     }
 
     public static void main(String[] args) {
-        ListNode node = new ListNode(5);
-        ListNode node2 = new ListNode(10);
-        ListNode node3 = new ListNode(3);
+        ListNode root = ListNode.of(1, 2, 3, 4, 5);
 
-        node.next = node2;
-        node2.next = node3;
-
-        node.print();
-        reverse(node);
-        node3.print();
-
-
-//        ListNode $node = ListNode.of(2, 3, 5, 7);
-//        $node.print();
+        ListNode.forEach(root);
+        ListNode reverse = reverse(root);
+        ListNode.forEach(reverse);
     }
 
-    public static void reverse(ListNode root) {
+    public static ListNode reverse(ListNode root) {
         ListNode pre = null;
         ListNode next = null;
-
         while (root != null) {
             next = root.next;
             root.next = pre;
             pre = root;
             root = next;
         }
+        return pre;
     }
 
 }

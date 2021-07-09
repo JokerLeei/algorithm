@@ -57,15 +57,45 @@ package com.example.leetcode.editor.cn;
 // 👍 2095 👎 0
 
 
+import java.util.Arrays;
+
 public class RemoveDuplicatesFromSortedArray {
 
     public static void main(String[] args) {
         Solution solution = new RemoveDuplicatesFromSortedArray().new Solution();
+        int[] a = new int[] { 0, 0, 1, 1, 1, 2, 2, 3, 3, 4 };
+        System.out.println(solution.removeDuplicates(a));
+        System.out.println(Arrays.toString(a));
+
+        int[] b = new int[] { 1, 2, 3 };
+        System.out.println(solution.removeDuplicates(b));
+        System.out.println(Arrays.toString(b));
+
+        int[] c = new int[] { 1 };
+        System.out.println(solution.removeDuplicates(c));
+        System.out.println(Arrays.toString(c));
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int removeDuplicates(int[] nums) {
-        return 1;
+        if (nums == null) {
+            return 0;
+        }
+        if (nums.length == 1) {
+            return 1;
+        }
+
+        int slow = 1;
+        int fast = 1;
+
+        for (; fast < nums.length; fast++) {
+            if (nums[fast] != nums[fast - 1]) {
+                nums[slow] = nums[fast];
+                slow++;
+            }
+        }
+
+        return slow;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
