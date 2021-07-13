@@ -37,7 +37,6 @@ package com.example.leetcode.editor.cn;
 // 👍 115 👎 0
 
 
-import com.example.leetcode.editor.cn.dto.ListNode;
 import com.example.leetcode.editor.cn.dto.TreeNode;
 
 import java.util.ArrayList;
